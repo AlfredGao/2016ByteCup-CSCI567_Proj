@@ -11,21 +11,26 @@ def get_dict():
         return dict_u,dict_q
     u_index = 0
     q_index = 0
+    is_head = True
     for fileline in file_train:
-        fileline = fileline.strip('\n\r').split('\t')
-        # print fileline
-        try:
-            dict_u[fileline[1]]
-        except Exception as e:
-            temp = {fileline[1]: u_index}
-            dict_u.update(temp)
-            u_index = u_index + 1
-        try:
-            dict_q[fileline[0]]
-        except Exception as e:
-            temp = {fileline[0]: q_index}
-            dict_q.update(temp)
-            q_index = q_index + 1
+        if is_head:
+            is_head = False
+            continue
+        else:
+            fileline = fileline.strip('\n\r').split('\t')
+            # print fileline
+            try:
+                dict_u[fileline[1]]
+            except Exception as e:
+                temp = {fileline[1]: u_index}
+                dict_u.update(temp)
+                u_index = u_index + 1
+            try:
+                dict_q[fileline[0]]
+            except Exception as e:
+                temp = {fileline[0]: q_index}
+                dict_q.update(temp)
+                q_index = q_index + 1
     file_train.close()
     return dict_u, dict_q
 
@@ -35,10 +40,16 @@ def create_hashtrain(dict_u, dict_q, question_hash, user_hash):
     file_question = open(question_hash,'w')
     file_user = open(user_hash, 'w')
     file_train = open('../data/invited_info_train.txt','r')
+    is_head = True;
     for fileline in file_train:
-        fileline = fileline.strip('\n\r').split('\t')
-        hash_line = str(dict_q[fileline[0]]) + '\t' + str(dict_u[fileline[1]]) + '\t' + str(fileline[2]) +  '\n'
+        if is_head:
+            hash_line = 'qid' + '\t' + 'uuid' + '\t' + 'is_answear' + '\n'
+            is_head = False
+        else:
+            fileline = fileline.strip('\n\r').split('\t')
+            hash_line = str(dict_q[fileline[0]]) + '\t' + str(dict_u[fileline[1]]) + '\t' + str(fileline[2]) +  '\n'
         file_hash.write(hash_line)
+
     file_hash.close()
     file_train.close()
 
