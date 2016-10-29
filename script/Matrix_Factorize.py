@@ -61,7 +61,9 @@ class MX_F():
         #TODO What is mask???
         # self.mask = scipy.sparse.csr_matrix( scipy.sparse.coo_matrix( (np.ones(len(self.pd_train)) ,( np.array(self.pd_train['uuid']),np.array(self.pd_train['qid']) ) ) ) ).toarray()
         mask = self.mask
+        # print 'I am not killed before mask'
         mse = (self.data - np.dot(U_M, Q_M.T) - self.overall_mean - penalty_U.repeat(self._q_num, axis = 1) - penalty_Q.repeat(self._u_num, axis = 1).T)
+        # print 'I am not killed before mse cal'
         # print mse.shape
         # print mask.shape
         self.U_Maxtrix = U_M + alpha*(np.dot(mask*mse, Q_M) - beta*U_M)
@@ -86,11 +88,13 @@ class MX_F():
         #TODO what is fuck of following??
         # mask_test =  scipy.sparse.csr_matrix( scipy.sparse.coo_matrix( (np.ones(len(self.pd_train)) ,( np.array(self.pd_train['uuid']),np.array(self.pd_train['qid']) ) ) ) ).toarray()
         self.data = scipy.sparse.csr_matrix( scipy.sparse.coo_matrix( (np.array(self.pd_train['is_answear']),(np.array(self.pd_train['uuid']),np.array(self.pd_train['qid'])) ) )).toarray()
+        # print 'I am not killed before data'
         # print self.data
         # self.data = self._data.get_in_numpy_format()
         # print self.data
         # test_data = scipy.sparse.csr_matrix( scipy.sparse.coo_matrix( np.array(self.pd_train['is_answear']),(np.array(self.pd_train['uuid']),np.array(self.pd_train['qid'])) ) )
         self.mask = scipy.sparse.csr_matrix( scipy.sparse.coo_matrix( (np.ones(len(self.pd_train)) ,( np.array(self.pd_train['uuid']),np.array(self.pd_train['qid']) ) ) ) ).toarray()
+        # print 'I am not killed before mask'
         # self.mask = self._data.get_mask()
         # mask_test = self._data.get_mask()
         # print 'mask test', mask_test.shape
@@ -101,9 +105,13 @@ class MX_F():
         self.p_Q = np.zeros((self._q_num, 1))
 
         # cost = self.gradient_descent(alpha, beta)
+        # print 'I am not killed before loop'
         for i in range(iter):
+            start_time = time.clock()
             cost = self.gradient_descent(alpha, beta)
+            end_time = time.clock()
             print 'Iteration:' + str(i + 1) + ': cost is ' + str(cost)
+            print 'Time of Iteration is: ' + str(end_time - start_time)
 
 
     def predict(self, user, question):

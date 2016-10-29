@@ -61,7 +61,6 @@ def create_hashtrain(dict_u, dict_q, question_hash, user_hash):
     for k, v in dict_q.iteritems():
         line = str(k) + '\t' + str(v) + '\n'
         file_question.write(line)
-
     file_user.close()
     file_question.close()
 
@@ -85,6 +84,7 @@ def hash_data():
     """
     create the path for file
     """
+    
     # question_path = '../data/question_info.txt'
     # user_path = '../data/user_info.txt'
     question_hash = '../data/invited_question_info_hash.txt'

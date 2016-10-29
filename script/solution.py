@@ -31,35 +31,37 @@ if __name__ == "__main__":
 
     MF = MX_F()
     MF.load_data('../data/train_hash_shuff.txt', '\t')
-    start_time = time.clock()
-    MF.factorize(k = 30, iter=250, alpha = 0.01, beta = 0.05)
-    end_time = time.clock()
+    for alpha in [0.002, 0.003,0.0035]:
+            start_time = time.clock()
+            MF.factorize(k = 30, iter=200, alpha = alpha, beta = 0.05)
+            end_time = time.clock()
 
-    result_file = open('../data/result.txt','w')
-    vali_file = open('../data/validate_nolabel.txt','r')
-    result_file.write('qid,uid,label\n')
-    is_head = True
-    for fileline in vali_file:
-        if is_head:
-            is_head = False
-            continue
-        else:
-            fileline = fileline.strip('\n\r').split(',')
-            # print fileline
-            q_id = fileline[0]
-            u_id = fileline[1]
-            # print dict_u[u_id]
-            # print dict_q[q_id]
-            try:
-                score = MF.predict(dict_u[u_id], dict_q[q_id])
-                # print score
-            except Exception as e:
-                score = 0.
-                print q_id + ',' + u_id + " Unable to predict"
+            result_path = '../data/result_' + str(alpha) + '.txt'
+            result_file = open(result_path,'w')
+            vali_file = open('../data/validate_nolabel.txt','r')
+            result_file.write('qid,uid,label\n')
+            is_head = True
+            for fileline in vali_file:
+                if is_head:
+                    is_head = False
+                    continue
+                else:
+                    fileline = fileline.strip('\n\r').split(',')
+                    # print fileline
+                    q_id = fileline[0]
+                    u_id = fileline[1]
+                    # print dict_u[u_id]
+                    # print dict_q[q_id]
+                    try:
+                        score = MF.predict(dict_u[u_id], dict_q[q_id])
+                        # print score
+                    except Exception as e:
+                        score = 0.5
+                        print q_id + ',' + u_id + " Unable to predict"
 
-            if score < 1e-5:
-                score = 0.
+                    if score < 1e-5:
+                        score = 0.
 
-            result = q_id + "," + u_id + "," + str(score) + '\n'
-            result_file.write(result)
-    result_file.close()
+                    result = q_id + "," + u_id + "," + str(score) + '\n'
+                    result_file.write(result)
+            result_file.close()
