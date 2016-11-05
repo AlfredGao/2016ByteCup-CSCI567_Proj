@@ -1,6 +1,7 @@
 """
 Stupid query tool by AG
 """
+
 import requests
 from bs4 import BeautifulSoup
 print 'Running rank query tool...'
