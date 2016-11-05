@@ -32,7 +32,7 @@ if __name__ == "__main__":
     MF = MX_F()
     MF.load_data('../data/train_hash_shuff.txt', '\t')
     start_time = time.clock()
-    MF.factorize(k = 30, iter=250, alpha = 0.0015, beta = 0.05)
+    MF.factorize(k = 40, iter= 500, alpha = 0.0015, beta = 0.05)
     end_time = time.clock()
 
     result_path = '../data/result_'  + '.txt'
