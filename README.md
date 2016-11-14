@@ -10,6 +10,6 @@ U can run rankquery_tool.py to quickly consult our team rank in CSCI567 and all 
 Matrix Factorize by AG hybird XGBoost by BoJ, Score = 0.49819
 
 # 13/11/2016
-Maxtrix Factorize by AG hygird General CF by BoJ, Score = 0.50697,param = {k = 70,iter= 600, alpha = 0.0018, beta = 0.058}
+Maxtrix Factorize by AG hybird General CF by BoJ, Score = 0.50697,param = {k = 70,iter= 600, alpha = 0.0018, beta = 0.058}
 # Question
 Where is the limit of MF + XGBoost? Sky?
