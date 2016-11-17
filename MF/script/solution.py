@@ -1,5 +1,6 @@
 from Matrix_Factorize import *
 
+
 def load_hashdata(path):
     d = {}
     try:
@@ -133,5 +134,5 @@ if __name__ == "__main__":
     #     MF.save_model(mean_path, p_U_path, p_Q_path, U_M_path, Q_M_path)
     # except Exception as e:
     #     print 'Save model failed'
-    MF.save_model()
+    MF.save_weight("../savemodel/k70iter600.model")
     print "Suceesfully save model!"

@@ -4,6 +4,7 @@ import pandas as pd
 import scipy
 from scipy import sparse
 import time
+import pickle
 
 class MX_F():
     def __init__(self):
@@ -151,9 +152,9 @@ class MX_F():
             U_M_str = ""
             for k in range(self._f_num):
                 if not k == self._f_num - 1:
-                    U_M_str = U_M_str + str(U_Maxtrix[x][k]) + ','
+                    U_M_str = U_M_str + str(self.U_Maxtrix[x][k]) + ','
                 else:
-                    U_M_str = U_M_str + str(U_Maxtrix[x][k]) + '\n'
+                    U_M_str = U_M_str + str(self.U_Maxtrix[x][k]) + '\n'
             U_M_f.write(U_M_str)
 
 
@@ -162,14 +163,17 @@ class MX_F():
             Q_M_str = ""
             for k in range(self._f_num):
                 if not k == self._f_num - 1:
-                    Q_M_str = Q_M_str + str(Q_Maxtrix[x][k]) + ','
+                    Q_M_str = Q_M_str + str(self.Q_Maxtrix[x][k]) + ','
                 else:
-                    Q_M_str = Q_M_str + str(Q_Maxtrix[x][k]) + '\n'
-                Q_M_f.write(Q_M_str)
+                    Q_M_str = Q_M_str + str(self.Q_Maxtrix[x][k]) + '\n'
+            Q_M_f.write(Q_M_str)
         p_U_f.close()
         p_Q_f.close()
         U_M_f.close()
         Q_M_f.close()
+
+    def save_weight(self,path):
+        pickle.dump([self.U_Maxtrix, self.Q_Maxtrix, self.overall_mean, self.p_U, self.p_Q],open(path,'w'))
 
 
 

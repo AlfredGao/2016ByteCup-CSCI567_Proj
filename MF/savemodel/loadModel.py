@@ -1,44 +1,52 @@
 
 # coding: utf-8
 
-# In[31]:
+# In[23]:
 
 import pandas as pd
 import numpy as np
+import pickle
 
 
-# In[32]:
+# In[36]:
 
-mean = pd.read_csv('overall_mean.model',names=['overall_mean'])
-mean
-
-
-# In[33]:
-
-p_q = pd.read_csv('p_Q.model', names=['penalty_Q'])
-p_q
+def load_weight(path):
+    U_Matrix, Q_Matrix, overall_mean, p_U, p_Q = pickle.load(open(path,'r'))
+    return U_Matrix, Q_Matrix, overall_mean, p_U, p_Q
 
 
-# In[34]:
+# In[39]:
 
-p_u = pd.read_csv('p_U.model', names=['penalty_U'])
-p_u
-
-
-# In[35]:
-
-q_m = pd.read_csv('Q_Maxtrix.model',names = ['q_m'])
-q_m
+U_Matrix, Q_Matrix, overall_mean, p_U, p_Q = load_weight("k70iter600.model")
 
 
-# In[47]:
+# In[45]:
 
-u_m = pd.read_csv('U_Maxtrix.model',names = ['u_m'])
-float(u_m.loc[3])
-np.dot(u_m.loc[3], q_m.loc[5].T) + 1
+def predict(user, question):
+    score = overall_mean + p_U[user] + p_Q[question] + np.dot(U_Matrix[user], Q_Matrix[question].T)
+    score = max(score, 0.)
+    score = min(score, 1.)
+    return float(score)
 
 
-# In[37]:
+# In[51]:
+
+result_path = 'result_loadmodel.txt'
+    # NN_CF_Feature = '../data/NN_CF_Feature.txt'
+# test_submit_path = '../data/submit/test_submit.txt'
+
+result_file = open(result_path,'w')
+    # NN_CF_Feature_file = open(NN_CF_Feature,'w')
+# test_submit_file = open(test_submit_path,'w')
+
+# test_file = open('../data/test_nolabel.txt','r')
+vali_file = open('../data/validate_nolabel.txt','r')
+    # train_file = open('../data/invited_info_NN_bj.txt','r')
+
+result_file.write('qid,uid,label\n')
+
+
+# In[52]:
 
 def load_hashdata(path):
     d = {}
@@ -65,31 +73,8 @@ dict_q = load_hashdata(question_hash_path)
 dict_u = load_hashdata(user_hash_path)
 
 
-# In[48]:
+# In[53]:
 
-def predict_load(user, question):
-    score = float(mean.loc[0]) + float(p_u.loc[user]) + float(p_q.loc[question]) + np.dot(u_m.loc[user], q_m.loc[question].T)
-    score = max(score, 0.)
-    score = min(score, 1.)
-    return float(score)
-
-
-# In[49]:
-
-result_path = 'result_loadmodel.txt'
-    # NN_CF_Feature = '../data/NN_CF_Feature.txt'
-# test_submit_path = '../data/submit/test_submit.txt'
-
-result_file = open(result_path,'w')
-    # NN_CF_Feature_file = open(NN_CF_Feature,'w')
-# test_submit_file = open(test_submit_path,'w')
-
-# test_file = open('../data/test_nolabel.txt','r')
-vali_file = open('../data/validate_nolabel.txt','r')
-    # train_file = open('../data/invited_info_NN_bj.txt','r')
-
-result_file.write('qid,uid,label\n')
-# test_submit_file.write('qid,uid.label\n')
 is_head = True
 for fileline in vali_file:
     if is_head:
@@ -101,7 +86,7 @@ for fileline in vali_file:
         u_id = fileline[1]
 
         try:
-            score = predict_load(dict_u[u_id], dict_q[q_id])
+            score = predict(dict_u[u_id], dict_q[q_id])
         except Exception as e:
             score = 0.
 #             print q_id + ',' + u_id + " Unable to predict"
@@ -113,8 +98,4 @@ for fileline in vali_file:
         result_file.write(result)
 result_file.close()
 
-
-# In[ ]:
-
-
-
+print 'load weight and predict Sucessfully!'
