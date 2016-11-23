@@ -15,3 +15,7 @@ This repository is created by CSCI567 project which also is solution for 2016 By
 > - Run the loadModel.py to load the save model and predict the file
 
 > - Model will be saved in the dir savemodel/
+
+
+## 23/11/2016
+> - Final leader board: 0.49231 Rank 6/1001
