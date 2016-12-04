@@ -33,7 +33,6 @@ This repository is created by CSCI567 project which also is solution for 2016 By
     - XGBoost + MF
     - CF + MF
     - XGBoost + MF + NN
-      - jb
       
 ### Experiments && Results
 - Training Time
