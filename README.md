@@ -1,15 +1,53 @@
-# 2016ByteCup-CSCI567_Proj
-This repository is created by CSCI567 project which also is solution for 2016 Byte Cup.
+# 2016 ByteCup Internation Machine Learning Competition Solution
+This repository is created by CSCI567 project which also is solution for 2016 Byte Cup. Our final rank on private board is 6/1002.
+***
+## Outline for Report
 
-# 29/10/2016
-Fisrt Attempt for Matrix Factorize method, Score = 0.4872
-#
-U can run rankquery_tool.py to quickly consult our team rank in CSCI567 and all without login to the stupid website.
+### Abstract
 
-# 04/11/2016
-Matrix Factorize by AG hybird XGBoost by BoJ, Score = 0.49819
+### Introduction
+- Background
+- How to approach
 
-# 13/11/2016
-Maxtrix Factorize by AG hybird General CF by BoJ, Score = 0.50697,param = {k = 70,iter= 600, alpha = 0.0018, beta = 0.058}
-# Question
-Where is the limit of MF + XGBoost? Sky?
+### Data Preprocessing && Feature Engineering
+- Inconsitent data
+- PCA
+- Feature generation
+- Feature selection
+
+### Modeling Methods
+- Loss Function
+- - NDCG@x
+- - LambdaRank
+- - Pairwise Rank
+- - RMSE
+- - Log loss
+
+- Models
+- - Bayesian Model
+- - Linear Regression
+- - XGBoost
+- - Matrix Factorization
+- - Item-based Collaborative Filtering
+- - Ensembled Models
+- - - XGBoost + MF
+- - - CF + MF
+- - - XGBoost + MF + NN
+
+### Experiments && Results
+- Training Time
+- Paramemter Tuning
+- ect.
+
+### Conclusion
+- 6/1002 :)
+
+### Insight Thoughts && Improvements
+- CUDA + MPI + OpenMP
+- Parallel MF
+
+### Acknowledge
+
+### Reference
+
+### Attachment Table
