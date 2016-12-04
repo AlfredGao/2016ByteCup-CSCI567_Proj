@@ -17,22 +17,22 @@ This repository is created by CSCI567 project which also is solution for 2016 By
 
 ### Modeling Methods
 - Loss Function
-- - NDCG@x
-- - LambdaRank
-- - Pairwise Rank
-- - RMSE
-- - Log loss
+  - NDCG@x
+  - LambdaRank
+  - Pairwise Rank
+  - RMSE
+  - Log loss
 
 - Models
-- - Bayesian Model
-- - Linear Regression
-- - XGBoost
-- - Matrix Factorization
-- - Item-based Collaborative Filtering
-- - Ensembled Models
-- - - XGBoost + MF
-- - - CF + MF
-- - - XGBoost + MF + NN
+  - Bayesian Model
+  - Linear Regression
+  - XGBoost
+  - Matrix Factorization
+  - Item-based Collaborative Filtering
+  - Ensembled Models
+    - XGBoost + MF
+    - CF + MF
+    - XGBoost + MF + NN
 
 ### Experiments && Results
 - Training Time
