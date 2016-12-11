@@ -6,8 +6,8 @@ This repository is created by CSCI567 project which also is solution for 2016 By
 ### Abstract
 
 ### 1. Introduction
-- Background
-- How to approach
+- 1.1 Background
+- 1.2 How to approach
 
 ### 2. Data Preprocessing && Feature Engineering (B.Jiang)
 - 2.1 Inconsitent data (Table 1)
