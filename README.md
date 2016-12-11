@@ -16,9 +16,9 @@ This repository is created by CSCI567 project which also is solution for 2016 By
 
 ### 3. Modeling Methods
 - 3.1 Loss Function
-  - 3.1.1 NDCG@x （Alfred.G)
-  - 3.1.2 Pairwise Rank (Alfred.G）
-  - 3.1.3 RMSE (B.Jiang)
+ - 3.1.1 NDCG@x （Alfred.G)
+ - 3.1.2 Pairwise Rank (Alfred.G）
+ - 3.1.3 RMSE (B.Jiang)
 
 - 3.2 Models
   - 3.2.1 XGBoost (B.Jiang)
