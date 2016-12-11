@@ -10,9 +10,9 @@ This repository is created by CSCI567 project which also is solution for 2016 By
 - How to approach
 
 ### 2. Data Preprocessing && Feature Engineering (B.Jiang)
-- Inconsitent data (Table 1)
-- Feature generation 
-- Feature selection (Figure 1)
+- 2.1 Inconsitent data (Table 1)
+- 2.2 Feature generation 
+- 2.3 Feature selection (Figure 1)
 
 ### 3. Modeling Methods
 - 3.1 Loss Function
