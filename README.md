@@ -21,10 +21,10 @@ This repository is created by CSCI567 project which also is solution for 2016 By
  - 3.1.3 RMSE (B.Jiang)
 
 - 3.2 Models
-  - 3.2.1 XGBoost (B.Jiang)
-  - 3.2.2 Matrix Factorization (Alfred.G)
-  - 3.2.3 Item-based Collaborative Filtering (B.Jiang)
-  - 3.2.4 Ensembled Models (Alfred.G)
+ - 3.2.1 XGBoost (B.Jiang)
+ - 3.2.2 Matrix Factorization (Alfred.G)
+ - 3.2.3 Item-based Collaborative Filtering (B.Jiang)
+ - 3.2.4 Ensembled Models (Alfred.G)
     - XGBoost + MF
     - CF + MF
     - XGBoost + MF + NN
