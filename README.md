@@ -9,27 +9,23 @@ This repository is created by CSCI567 project which also is solution for 2016 By
 - Background
 - How to approach
 
-### Data Preprocessing && Feature Engineering
-- Inconsitent data
-- PCA
-- Feature generation
-- Feature selection
+### 2.Data Preprocessing && Feature Engineering (B.Jiang)
+- Inconsitent data (Table 1)
+- Feature generation 
+- Feature selection (Figure 1)
 
-### Modeling Methods
-- Loss Function
-  - NDCG@x
-  - LambdaRank
-  - Pairwise Rank
-  - RMSE
-  - Log loss
+### 3.Modeling Methods
+- 3.1 Loss Function
+  - 3.1.1 NDCG@x （Alfred.G)
+  - 3.1.2 Pairwise Rank (Alfred.G）
+  - 3.1.3 RMSE (B.Jiang)
 
 - Models
-  - Bayesian Model
-  - Linear Regression
-  - XGBoost
-  - Matrix Factorization
-  - Item-based Collaborative Filtering
-  - Ensembled Models
+  - Bayesian Model (B.Jiang)
+  - XGBoost (B.Jiang)
+  - Matrix Factorization (Alfred.G)
+  - Item-based Collaborative Filtering (B.Jiang)
+  - Ensembled Models (Alfred.G)
     - XGBoost + MF
     - CF + MF
     - XGBoost + MF + NN
@@ -42,7 +38,7 @@ This repository is created by CSCI567 project which also is solution for 2016 By
 ### Conclusion
 - 6/1002 :)
 
-### Insight Thoughts && Improvements
+### Insight Thoughts && Improvements (Alfred.G)
 - CUDA + MPI + OpenMP
 - Parallel MF
 
