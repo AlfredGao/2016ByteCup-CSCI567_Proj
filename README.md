@@ -5,7 +5,7 @@ This repository is created by CSCI567 project which also is solution for 2016 By
 
 ### Abstract
 
-### Introduction
+### 1.Introduction
 - Background
 - How to approach
 
@@ -30,19 +30,19 @@ This repository is created by CSCI567 project which also is solution for 2016 By
     - CF + MF
     - XGBoost + MF + NN
       
-### Experiments && Results
+### 4.Experiments && Results
 - Training Time
 - Paramemter Tuning
 - ect.
 
-### Conclusion
+### 5.Conclusion
 - 6/1002 :)
 
-### Insight Thoughts && Improvements (Alfred.G)
+### 6.Insight Thoughts && Improvements (Alfred.G)
 - CUDA + MPI + OpenMP
 - Parallel MF
 
-### Acknowledge
+### 7.Acknowledge
 
 ### Reference
 
